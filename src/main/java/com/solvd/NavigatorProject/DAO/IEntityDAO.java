@@ -4,13 +4,9 @@ import java.util.List;
 
 public interface IEntityDAO<T> {
 
-	List<T> getEntities();
-	
-	T getEntity(Long id);
-	
-	void delete(Long id);
-	
-	void update(T entity);
-
-	void save(T entity);
+	public List<T> getEntities();
+	public T getEntity(Long id);
+	public void save(T entity);
+	public void update(T entity);
+	public void delete(Long id);
 }
