@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IBusLineRouteDAO">
+	<resultMap id="BusLineRouteResultMap" type="com.solvd.NavigatorProject.models.transport.BusLineRoute">
+		<id property="id" column="id"></id>
+		<result property="busLineId" column="bus_line_id"></result>
+		<result property="routeId" column="route_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="BusLineRouteResultMap">
+	<![CDATA[
+		SELECT * FROM Bus_Line_Routes;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="BusLineRouteResultMap">
+	<![CDATA[
+		SELECT * FROM Bus_Line_Routes WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Bus_Line_Routes(bus_line_id,route_id) VALUES (#{busLineId},#{routeId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Bus_Line_Routes SET bus_line_id = #{BusLineId}, route_id = #{routeId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Bus_Line_Routes WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

@@ -23,5 +23,11 @@
 		<mapper resource="Mappers/RouteMapper.xml"/>
 		<mapper resource="Mappers/StationMapper.xml"/>
 		<mapper resource="Mappers/UserMapper.xml"/>
+		<mapper resource="Mappers/BusLineMapper.xml"/>
+		<mapper resource="Mappers/BusLineRouteMapper.xml"/>
+		<mapper resource="Mappers/BusMapper.xml"/>
+		<mapper resource="Mappers/RailwayLineMapper.xml"/>
+		<mapper resource="Mappers/RailwayLineRouteMapper.xml"/>
+		<mapper resource="Mappers/RailwayMapper.xml"/>
 	</mappers>
 </configuration>

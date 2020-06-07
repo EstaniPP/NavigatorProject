@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IRailwayLineRouteDAO">
+	<resultMap id="RailwayLineRouteResultMap" type="com.solvd.NavigatorProject.models.transport.RailwayLineRoute">
+		<id property="id" column="id"></id>
+		<result property="railwayLineId" column="railway_line_id"></result>
+		<result property="routeId" column="route_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="RailwayLineRouteResultMap">
+	<![CDATA[
+		SELECT * FROM Railway_Line_Routes;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="RailwayLineRouteResultMap">
+	<![CDATA[
+		SELECT * FROM Railway_Line_Routes WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Railway_Line_Routes(railway_line_id,route_id) VALUES (#{railwayLineId},#{routeId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Railway_Line_Routes SET railway_line_id = #{railwayLineId}, route_id = #{routeId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Railway_Line_Routes WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

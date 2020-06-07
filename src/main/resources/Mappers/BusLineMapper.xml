@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IBusLineDAO">
+	<resultMap id="BusLineResultMap" type="com.solvd.NavigatorProject.models.transport.BusLine">
+		<id property="id" column="id"></id>
+		<result property="name" column="name"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="BusLineResultMap">
+	<![CDATA[
+		SELECT * FROM Bus_Lines;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="BusLineResultMap">
+	<![CDATA[
+		SELECT * FROM Bus_Lines WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Bus_Lines(name) VALUES (#{name});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Bus_Lines SET name = #{name} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Bus_Lines WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>
