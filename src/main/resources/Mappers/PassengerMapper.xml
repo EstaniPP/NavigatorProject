@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IPassengerDAO">
+	<resultMap id="PassengerResultMap" type="com.solvd.NavigatorProject.models.user.Passenger">
+		<id property="id" column="id"></id>
+		<result property="userId" column="user_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="PassengerResultMap">
+	<![CDATA[
+		SELECT * FROM Passengers;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="PassengerResultMap">
+	<![CDATA[
+		SELECT * FROM Passengers WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Passengers(user_id) VALUES (#{userId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Passengers SET user_id = #{userId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Passengers WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IDriverDAO">
+	<resultMap id="DriverResultMap" type="com.solvd.NavigatorProject.models.user.Driver">
+		<id property="id" column="id"></id>
+		<result property="userId" column="user_id"></result>
+		<result property="salary" column="salary"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="DriverResultMap">
+	<![CDATA[
+		SELECT * FROM Drivers;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="DriverResultMap">
+	<![CDATA[
+		SELECT * FROM Drivers WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Drivers(user_id,salary) VALUES (#{userId},#{salary});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Drivers SET user_id = #{userId}, salary = #{salary} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Drivers WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

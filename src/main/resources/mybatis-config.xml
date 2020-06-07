@@ -16,5 +16,12 @@
 		</environment>
 	</environments>
 	<mappers>
+		<mapper resource="Mappers/CityMapper.xml"/>
+		<mapper resource="Mappers/DriverMapper.xml"/>
+		<mapper resource="Mappers/LicenseMapper.xml"/>
+		<mapper resource="Mappers/PassengerMapper.xml"/>
+		<mapper resource="Mappers/RouteMapper.xml"/>
+		<mapper resource="Mappers/StationMapper.xml"/>
+		<mapper resource="Mappers/UserMapper.xml"/>
 	</mappers>
 </configuration>

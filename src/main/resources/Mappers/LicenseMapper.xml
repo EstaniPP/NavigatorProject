@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.ILicenseDAO">
+	<resultMap id="LicenseResultMap" type="com.solvd.NavigatorProject.models.user.License">
+		<id property="id" column="id"></id>
+		<result property="number" column="number"></result>
+		<result property="driverId" column="driver_id"></result>
+		<result property="expirationDate" column="expiration_date"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="LicenseResultMap">
+	<![CDATA[
+		SELECT * FROM Licenses;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="LicenseResultMap">
+	<![CDATA[
+		SELECT * FROM Licenses WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Licenses(number,driver_id,expiration_date) VALUES (#{number},#{driverId},#{expirationDate});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Licenses SET number = #{number}, driver_id = #{driverId}, expiration_date = #{expirationDate} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Licenses WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IRouteDAO">
+	<resultMap id="RouteResultMap" type="com.solvd.NavigatorProject.models.location.Route">
+		<id property="id" column="id"></id>
+		<result property="startStationId" column="start_station_id"></result>
+		<result property="endStationId" column="end_station_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="RouteResultMap">
+	<![CDATA[
+		SELECT * FROM Routes;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="RouteResultMap">
+	<![CDATA[
+		SELECT * FROM Routes WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Routes(start_station_id,end_station_id) VALUES (#{startStationId},#{endStationId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Routes SET start_station_id = #{startStationId}, end_station_id = #{endStationId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Routes WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

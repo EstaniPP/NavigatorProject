@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IStationDAO">
+	<resultMap id="StationResultMap" type="com.solvd.NavigatorProject.models.location.Station">
+		<id property="id" column="id"></id>
+		<result property="name" column="name"></result>
+		<result property="address" column="address"></result>
+		<result property="latitude" column="latitude"></result>
+		<result property="longitude" column="longitude"></result>
+		<result property="cityId" column="city_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="StationResultMap">
+	<![CDATA[
+		SELECT * FROM Stations;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="StationResultMap">
+	<![CDATA[
+		SELECT * FROM Stations WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES (#{name},#{address},#{latitude},#{longitude},#{cityId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Stations SET name = #{name}, address = #{address}, latitude = #{latitude}, longitude = #{longitude}, city_id = #{cityId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Stations WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

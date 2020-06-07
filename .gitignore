@@ -6,4 +6,4 @@ target/
 
 .settings/
 
-.src/main/resources/db.properties
+src/main/resources/db.properties
