@@ -20,6 +20,12 @@
 		SELECT * FROM Routes WHERE id = #{id};
 	]]>
 	</select>
+	
+	<select id="getRoutesByStartStationId" resultMap="RouteResultMap">
+	<![CDATA[
+		SELECT * FROM Routes WHERE start_station_id = #{id};
+	]]>
+	</select>
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 	<![CDATA[

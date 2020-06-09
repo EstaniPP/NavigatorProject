@@ -1,0 +1,11 @@
+2020-06-08 11:39:14 DEBUG save:143 - ==>  Preparing: INSERT INTO Users(name,last_name,birth_date,address) VALUES (?,?,?,?); 
+2020-06-08 11:39:14 DEBUG save:143 - ==> Parameters: Juan(String), Perez(String), 2020-04-20(LocalDate), address(String)
+2020-06-08 11:39:17 DEBUG save:143 - <==    Updates: 1
+2020-06-08 11:39:17 DEBUG save:143 - ==>  Preparing: INSERT INTO Users(name,last_name,birth_date,address) VALUES (?,?,?,?); 
+2020-06-08 11:39:17 DEBUG save:143 - ==> Parameters: Jose(String), Pacual(String), 2010-04-20(LocalDate), address(String)
+2020-06-08 11:39:17 DEBUG save:143 - <==    Updates: 1
+2020-06-08 11:39:17 DEBUG getEntities:143 - ==>  Preparing: SELECT * FROM Users; 
+2020-06-08 11:39:17 DEBUG getEntities:143 - ==> Parameters: 
+2020-06-08 11:39:17 DEBUG getEntities:143 - <==      Total: 2
+2020-06-08 11:39:17 INFO  Runner:43 - Juan
+2020-06-08 11:39:17 INFO  Runner:43 - Jose
