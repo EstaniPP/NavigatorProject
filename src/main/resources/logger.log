@@ -1,11 +1,19 @@
-2020-06-08 11:39:14 DEBUG save:143 - ==>  Preparing: INSERT INTO Users(name,last_name,birth_date,address) VALUES (?,?,?,?); 
-2020-06-08 11:39:14 DEBUG save:143 - ==> Parameters: Juan(String), Perez(String), 2020-04-20(LocalDate), address(String)
-2020-06-08 11:39:17 DEBUG save:143 - <==    Updates: 1
-2020-06-08 11:39:17 DEBUG save:143 - ==>  Preparing: INSERT INTO Users(name,last_name,birth_date,address) VALUES (?,?,?,?); 
-2020-06-08 11:39:17 DEBUG save:143 - ==> Parameters: Jose(String), Pacual(String), 2010-04-20(LocalDate), address(String)
-2020-06-08 11:39:17 DEBUG save:143 - <==    Updates: 1
-2020-06-08 11:39:17 DEBUG getEntities:143 - ==>  Preparing: SELECT * FROM Users; 
-2020-06-08 11:39:17 DEBUG getEntities:143 - ==> Parameters: 
-2020-06-08 11:39:17 DEBUG getEntities:143 - <==      Total: 2
-2020-06-08 11:39:17 INFO  Runner:43 - Juan
-2020-06-08 11:39:17 INFO  Runner:43 - Jose
+2020-06-10 15:47:55 DEBUG getEntity:143 - ==>  Preparing: SELECT * FROM Stations WHERE id = ?; 
+2020-06-10 15:47:55 DEBUG getEntity:143 - ==> Parameters: 2(Long)
+2020-06-10 15:47:55 DEBUG getEntity:143 - <==      Total: 1
+2020-06-10 15:47:55 DEBUG getEntity:143 - ==>  Preparing: SELECT * FROM Stations WHERE id = ?; 
+2020-06-10 15:47:55 DEBUG getEntity:143 - ==> Parameters: 6(Long)
+2020-06-10 15:47:55 DEBUG getEntity:143 - <==      Total: 1
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==>  Preparing: SELECT st.* FROM Stations st LEFT JOIN Routes r ON st.id = r.end_station_id WHERE r.start_station_id = ?; 
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==> Parameters: 2(Long)
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - <==      Total: 1
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==>  Preparing: SELECT st.* FROM Stations st LEFT JOIN Routes r ON st.id = r.end_station_id WHERE r.start_station_id = ?; 
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==> Parameters: 4(Long)
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - <==      Total: 1
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==>  Preparing: SELECT st.* FROM Stations st LEFT JOIN Routes r ON st.id = r.end_station_id WHERE r.start_station_id = ?; 
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==> Parameters: 5(Long)
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - <==      Total: 1
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==>  Preparing: SELECT st.* FROM Stations st LEFT JOIN Routes r ON st.id = r.end_station_id WHERE r.start_station_id = ?; 
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - ==> Parameters: 7(Long)
+2020-06-10 15:47:55 DEBUG getEndStationsByStartStationId:143 - <==      Total: 0
+2020-06-10 15:47:55 INFO  Runner:64 - 0
