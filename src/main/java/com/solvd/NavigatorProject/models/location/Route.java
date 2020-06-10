@@ -11,6 +11,8 @@ public class Route {
 	private Long endStationId; 
 	private List<RailwayLineRoute> railwayLineRoutes;
 	private List<BusLineRoute> busLineRoutes;
+	private Station startStation;
+	private Station endStation;
 	
 	public Route() {
 		
@@ -54,5 +56,21 @@ public class Route {
 	
 	public void setBusLineRoutes(List<BusLineRoute> busLineRoutes) {
 		this.busLineRoutes = busLineRoutes;
+	}
+	
+	public void setStartStation(Station startStation) {
+		this.startStation = startStation;
+	}
+	
+	public void setEndStation(Station endStation) {
+		this.endStation = endStation;
+	}
+	
+	public Station getStartStation() {
+		return startStation;
+	}
+	
+	public Station getEndStation() {
+		return endStation;
 	}
 }

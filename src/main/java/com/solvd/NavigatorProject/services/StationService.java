@@ -18,14 +18,17 @@ public class StationService {
 		routeDAO = SqlSession.getInstance().openSession(true).getMapper(IRouteDAO.class);
 	}
 	
-//	public List<Station> getStations(){
-//		List<Station> stations = stationDAO.getEntities();
-//		stations.stream().forEach(station -> station.setRoutes(routeDAO.getRoutesByStartStationId(station.getId())));
-//		return stations;
-//	}
+	public List<Station> getStations(){
+		List<Station> stations = stationDAO.getEntities();
+		stations.stream().forEach(station -> station.setRoutes(routeDAO.getRoutesByStartStationId(station.getId())));
+		return stations;
+	}
 	
 	public Station getStationById(Long id) {
-		return stationDAO.getEntity(id);
+		Station station = stationDAO.getEntity(id);
+		station.setRoutes(routeDAO.getRoutesByStartStationId(id));
+		return station;
+		
 	}
 
 	public List<Station> findStations(Long id) {

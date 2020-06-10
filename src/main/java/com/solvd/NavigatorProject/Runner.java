@@ -51,7 +51,7 @@ public class Runner {
 //		
 //		stationService.findStations(Integer.toUnsignedLong(1)).stream().forEach(st -> LOGGER.info(st.getName()));;
 
-		Station start = stationService.getStationById(Integer.toUnsignedLong(2));
+		Station start = stationService.getStationById(Integer.toUnsignedLong(1));
 		Station end = stationService.getStationById(Integer.toUnsignedLong(6));
 		
 		Navigator nav = new Navigator();
@@ -59,7 +59,7 @@ public class Runner {
 		List<Station> actualPath = new ArrayList<Station>();
 		
 		nav.getPath(start, end, actualPath);
-		
+		LOGGER.info(nav.getSolution(start, end).toString());
 		actualPath.stream().forEach(st -> LOGGER.info(st.getName()));
 		LOGGER.info(actualPath.size());
 	}

@@ -70,4 +70,9 @@ public class Station {
 	public void setRoutes(List<Route> routes) {
 		this.routes = routes;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return ((Station)obj).getId() == id;
+	}
 }
