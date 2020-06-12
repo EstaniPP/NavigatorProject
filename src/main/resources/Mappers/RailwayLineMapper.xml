@@ -37,4 +37,10 @@
 		DELETE FROM Railway_Lines WHERE id = #{id};
 	]]>
 	</delete>	
+	
+		<select id="getRailwayLinesByRouteId" resultMap="RailwayLineResultMap">
+	<![CDATA[
+		SELECT rl.* FROM Railway_Line_Routes rlr inner join Railway_Lines rl ON rlr.railway_line_id = rl.id WHERE route_id = #{id};
+	]]>
+	</select>
 </mapper>

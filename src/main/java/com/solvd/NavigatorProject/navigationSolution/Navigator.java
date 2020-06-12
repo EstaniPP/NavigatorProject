@@ -24,7 +24,7 @@ public class Navigator {
 	}
 	
 	//DIJSKTRA Solution
-	public String getSolution(Station fromPoint, Station toPoint) {
+	public Path getSolution(Station fromPoint, Station toPoint) {
 		PriorityQueue<Path> paths = new PriorityQueue<Path>(new PathComparator()); //Create queue with all possible paths
 		for(Route route : fromPoint.getRoutes()) {
 			route.setStartStation(stations.get(route.getStartStationId()));
@@ -37,7 +37,7 @@ public class Navigator {
 		} catch (Exception e) {
 			LOGGER.error(e);//If there is no possible path
 		}
-		return bestPath.toString();
+		return bestPath;
 	}
 	
 	private Path getBestPath(PriorityQueue<Path> paths, Station toPoint) throws Exception {

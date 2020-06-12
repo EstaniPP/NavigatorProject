@@ -3,6 +3,7 @@ package com.solvd.NavigatorProject.navigationSolution;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.solvd.NavigatorProject.models.location.Route;
 import com.solvd.NavigatorProject.models.location.Station;
 
@@ -24,6 +25,7 @@ public class Path{
 		// TODO Auto-generated constructor stub
 	}
 
+	@JsonIgnore
 	public Station getStation() {
 		return routes.get(routes.size()-1).getEndStation();
 	}

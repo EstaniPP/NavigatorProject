@@ -37,4 +37,10 @@
 		DELETE FROM Bus_Lines WHERE id = #{id};
 	]]>
 	</delete>	
+		
+	<select id="getBusLinesByRouteId" resultMap="BusLineResultMap">
+	<![CDATA[
+		SELECT bl.* FROM Bus_Line_Routes blr inner join Bus_Lines bl ON blr.bus_line_id = bl.id WHERE route_id = #{id};
+	]]>
+	</select>
 </mapper>

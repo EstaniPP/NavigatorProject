@@ -31,6 +31,8 @@ public class StationService {
 	}
 	
 	public Station getStationByCoordinate(Double latitude, Double longitude) {
-		return stationDAO.getStationByCoordinate(latitude, longitude);
+		Station station = stationDAO.getStationByCoordinate(latitude, longitude);
+		station.setRoutes(routeDAO.getRoutesByStartStationId(station.getId()));
+		return station;
 	}
 }

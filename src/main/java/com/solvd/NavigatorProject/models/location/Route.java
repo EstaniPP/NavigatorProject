@@ -12,6 +12,7 @@ public class Route extends Entity{
 	private Long startStationId;
 	@JsonIgnore
 	private Long endStationId; 
+	
 	private List<RailwayLine> railwayLines;
 	private List<BusLine> busLines;
 	@JsonIgnore

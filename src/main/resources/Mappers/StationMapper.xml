@@ -26,7 +26,7 @@
 	
 	<select id="getStationByCoordinate" resultMap="StationResultMap">
 	<![CDATA[
-		SELECT * FROM Stations WHERE latitude = #{latitude} AND longitude = #{longitude};
+		SELECT * FROM Stations WHERE latitude = #{param1} AND longitude = #{param2};
 	]]>
 	</select>
 

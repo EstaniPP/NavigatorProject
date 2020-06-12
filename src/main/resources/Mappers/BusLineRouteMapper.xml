@@ -38,10 +38,5 @@
 		DELETE FROM Bus_Line_Routes WHERE id = #{id};
 	]]>
 	</delete>	
-	
-	<select id="getBusLinesByRouteId" resultMap="BusLineRouteResultMap">
-	<![CDATA[
-		SELECT bus_line_id FROM Bus_Line_Routes WHERE route_id = #{id};
-	]]>
-	</select>
+
 </mapper>
