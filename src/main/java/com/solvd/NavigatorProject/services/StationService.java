@@ -30,8 +30,4 @@ public class StationService {
 		return station;
 		
 	}
-
-	public List<Station> findStations(Long id) {
-		return stationDAO.getEndStationsByStartStationId(id);
-	}
 }

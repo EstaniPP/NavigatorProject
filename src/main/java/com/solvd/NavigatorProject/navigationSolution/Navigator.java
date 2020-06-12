@@ -1,7 +1,6 @@
 package com.solvd.NavigatorProject.navigationSolution;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.PriorityQueue;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,6 +22,7 @@ public class Navigator {
 		stationService.getStations().stream().forEach(station -> stations.put(station.getId(),station));
 	}
 	
+	//DIJSKTRA Solution
 	public String getSolution(Station fromPoint, Station toPoint) {
 		PriorityQueue<Path> paths = new PriorityQueue<Path>(new PathComparator()); //Create queue with all possible paths
 		for(Route route : fromPoint.getRoutes()) {
@@ -54,29 +54,5 @@ public class Navigator {
 			}
 			return getBestPath(paths, toPoint);
 		}
-	}
-	
-	//MAXI'S SOLUTION
-	
-	public List<Station> getPath(Station start, Station end, List<Station> actualPath) {
-		List<Station> posibleStations = stationService.findStations(start.getId());
-		for(Station station : posibleStations) {
-			actualPath.add(start);
-			if (station.getId() == end.getId()) {
-				actualPath.add(end);
-				return actualPath;
-			}
-			else {
-				getPath(station, end, actualPath);
-			}
-			if(actualPath.get(actualPath.size()-1).getId() == end.getId()) {
-				break;
-			}
-			else {
-				actualPath.remove(actualPath.size()-1);
-			}
-		}
-		return actualPath;
-	}
-	
+	}	
 }

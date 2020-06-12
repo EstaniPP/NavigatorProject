@@ -23,15 +23,6 @@
 		SELECT * FROM Stations WHERE id = #{id};
 	]]>
 	</select>
-	
-	<select id="getEndStationsByStartStationId" resultMap="StationResultMap">
-	<![CDATA[
-		SELECT st.* FROM Stations st
-		LEFT JOIN Routes r 
-		ON st.id = r.end_station_id 
-		WHERE r.start_station_id = #{id};
-	]]>
-	</select>
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 	<![CDATA[
