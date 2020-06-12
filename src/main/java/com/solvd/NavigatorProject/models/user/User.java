@@ -2,8 +2,9 @@ package com.solvd.NavigatorProject.models.user;
 
 import java.time.LocalDate;
 
-public class User {
-	private Long id;
+import com.solvd.NavigatorProject.models.Entity;
+
+public class User extends Entity{
 	private String name;
 	private String lastName;
 	private LocalDate birthDate;
@@ -11,10 +12,6 @@ public class User {
 	
 	public User() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public String getName() {
@@ -31,10 +28,6 @@ public class User {
 	
 	public String getAddress() {
 		return address;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setName(String name) {

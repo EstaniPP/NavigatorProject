@@ -1,10 +1,10 @@
 package com.solvd.NavigatorProject.models.transport;
 
+import com.solvd.NavigatorProject.models.Entity;
 import com.solvd.NavigatorProject.models.user.Driver;
 
-public class Railway {
+public class Railway extends Entity {
 
-	private Long id;
 	private Long railwayLineId;
 	private Long driverId;
 	private Driver driver;
@@ -17,20 +17,12 @@ public class Railway {
 		this.railwayLineId = railwayLineId;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public void setDriverId(Long driverId) {
 		this.driverId = driverId;
 	}
 	
 	public Long getRailwayLineId() {
 		return railwayLineId;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public Long getDriverId() {

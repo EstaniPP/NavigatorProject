@@ -1,7 +1,8 @@
 package com.solvd.NavigatorProject.models.user;
 
-public class Driver {
-	private Long id; 
+import com.solvd.NavigatorProject.models.Entity;
+
+public class Driver extends Entity{
 	private Long userId;
 	private Double salary; 
 	private License license; 
@@ -9,10 +10,6 @@ public class Driver {
 	
 	public Driver() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public Long getUserId() {
@@ -29,10 +26,6 @@ public class Driver {
 	
 	public User getUser() {
 		return user;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setUserId(Long userId) {

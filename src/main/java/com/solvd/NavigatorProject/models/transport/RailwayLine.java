@@ -2,37 +2,30 @@ package com.solvd.NavigatorProject.models.transport;
 
 import java.util.List;
 
-public class RailwayLine {
+import com.solvd.NavigatorProject.models.Entity;
 
-	private Long id;
-	private Long name;
+public class RailwayLine extends Entity{
+
+	private String name;
 	private List<Railway> railways;
 	
 	public RailwayLine() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setRailways(List<Railway> railways) {
-		this.railways = railways;
+	public String getName() {
+		return name;
 	}
 	
-	public void setName(Long name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+
 	public List<Railway> getRailways() {
 		return railways;
 	}
 	
-	public Long getName() {
-		return name;
+	public void setRailways(List<Railway> railways) {
+		this.railways = railways;
 	}
-	
-	public Long getId() {
-		return id;
-	}	
 }
