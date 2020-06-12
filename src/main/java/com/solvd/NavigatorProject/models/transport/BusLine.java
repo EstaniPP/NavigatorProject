@@ -2,38 +2,31 @@ package com.solvd.NavigatorProject.models.transport;
 
 import java.util.List;
 
-public class BusLine {
+import com.solvd.NavigatorProject.models.Entity;
 
-	private Long id;
-	private Long name;
+public class BusLine extends Entity{
+	
+	private String name;
 	private List<Bus> buses;
 	
 	public BusLine() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setBuss(List<Bus> buses) {
-		this.buses = buses;
+	public String getName() {
+		return name;
 	}
 	
-	public void setName(Long name) {
+	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public List<Bus> getBuses() {
 		return buses;
 	}
 	
-	public Long getName() {
-		return name;
+	public void setBuses(List<Bus> buses) {
+		this.buses = buses;
 	}
-	
-	public Long getId() {
-		return id;
-	}	
 }
 

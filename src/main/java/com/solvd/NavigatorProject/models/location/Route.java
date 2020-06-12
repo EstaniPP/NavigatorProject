@@ -2,11 +2,11 @@ package com.solvd.NavigatorProject.models.location;
 
 import java.util.List;
 
+import com.solvd.NavigatorProject.models.Entity;
 import com.solvd.NavigatorProject.models.transport.BusLineRoute;
 import com.solvd.NavigatorProject.models.transport.RailwayLineRoute;
 
-public class Route {
-	private Long id; 
+public class Route extends Entity{
 	private Long startStationId;
 	private Long endStationId; 
 	private List<RailwayLineRoute> railwayLineRoutes;
@@ -16,10 +16,6 @@ public class Route {
 	
 	public Route() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public Long getStartStationId() {
@@ -36,10 +32,6 @@ public class Route {
 	
 	public List<BusLineRoute> getBusLineRoutes() {
 		return busLineRoutes;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setStartStationId(Long startStationId) {

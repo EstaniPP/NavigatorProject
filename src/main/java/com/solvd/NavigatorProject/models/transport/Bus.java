@@ -1,10 +1,10 @@
 package com.solvd.NavigatorProject.models.transport;
 
+import com.solvd.NavigatorProject.models.Entity;
 import com.solvd.NavigatorProject.models.user.Driver;
 
-public class Bus {
+public class Bus extends Entity{
 
-	private Long id;
 	private Long busLineId;
 	private Long driverId;
 	private Driver driver;
@@ -17,20 +17,12 @@ public class Bus {
 		this.busLineId = busLineId;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public void setDriverId(Long driverId) {
 		this.driverId = driverId;
 	}
 	
 	public Long getBusLineId() {
 		return busLineId;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public Long getDriverId() {

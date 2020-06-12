@@ -2,17 +2,14 @@ package com.solvd.NavigatorProject.models.location;
 
 import java.util.List;
 
-public class City {
-	private Long id;
+import com.solvd.NavigatorProject.models.Entity;
+
+public class City extends Entity{
 	private String name;
 	private List<Station> stations; 
 	
 	public City() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public String getName() {
@@ -21,10 +18,6 @@ public class City {
 	
 	public List<Station> getStations() {
 		return stations;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setName(String name) {

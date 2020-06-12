@@ -1,7 +1,8 @@
 package com.solvd.NavigatorProject.models.transport;
 
-public class RailwayLineRoute {
-	private Long id;
+import com.solvd.NavigatorProject.models.Entity;
+
+public class RailwayLineRoute extends Entity{
 	private Long railwayLineId;
 	private Long routeId;
 	
@@ -13,20 +14,12 @@ public class RailwayLineRoute {
 		this.routeId = routeId;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public void setRailwayLineId(Long railwayLineId) {
 		this.railwayLineId = railwayLineId;
 	}
 	
 	public Long getRouteId() {
 		return routeId;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public Long getRailwayLineId() {

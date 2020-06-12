@@ -2,8 +2,9 @@ package com.solvd.NavigatorProject.models.location;
 
 import java.util.List;
 
-public class Station {
-	private Long id; 
+import com.solvd.NavigatorProject.models.Entity;
+
+public class Station extends Entity{
 	private String name;
 	private String address;
 	private Double latitude;
@@ -13,10 +14,6 @@ public class Station {
 	
 	public Station() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public String getName() {
@@ -41,10 +38,6 @@ public class Station {
 	
 	public List<Route> getRoutes() {
 		return routes;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setName(String name) {
@@ -73,6 +66,6 @@ public class Station {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return ((Station)obj).getId() == id;
+		return ((Station)obj).getId() == this.getId();
 	}
 }

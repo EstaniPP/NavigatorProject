@@ -2,18 +2,16 @@ package com.solvd.NavigatorProject.models.user;
 
 import java.time.LocalDate;
 
-public class License {
-	private Long id;
+import com.solvd.NavigatorProject.models.Entity;
+
+public class License extends Entity{
+	
 	private String number;
 	private Long driverId;
 	private LocalDate expirationDate;
 	
 	public License() {
 		
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public String getNumber() {
@@ -26,10 +24,6 @@ public class License {
 	
 	public LocalDate getExpirationDate() {
 		return expirationDate;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public void setNumber(String number) {
