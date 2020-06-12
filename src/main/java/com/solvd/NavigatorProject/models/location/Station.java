@@ -66,6 +66,10 @@ public class Station extends Entity{
 	
 	@Override
 	public boolean equals(Object obj) {
-		return ((Station)obj).getId() == this.getId();
+		if(obj == null) return false;
+		if(!(obj instanceof Station)) return false;
+		Station s = (Station) obj;
+		if(this.hashCode() != s.hashCode()) return false;
+		return (this.getId() == s.getId());
 	}
 }
