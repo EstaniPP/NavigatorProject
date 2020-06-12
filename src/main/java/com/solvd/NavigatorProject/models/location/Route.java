@@ -5,6 +5,7 @@ import java.util.List;
 import com.solvd.NavigatorProject.models.transport.BusLineRoute;
 import com.solvd.NavigatorProject.models.transport.RailwayLineRoute;
 
+
 public class Route {
 	private Long id; 
 	private Long startStationId;
