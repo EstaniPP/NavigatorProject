@@ -4,16 +4,16 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.solvd.NavigatorProject.models.Entity;
-import com.solvd.NavigatorProject.models.transport.BusLineRoute;
-import com.solvd.NavigatorProject.models.transport.RailwayLineRoute;
+import com.solvd.NavigatorProject.models.transport.BusLine;
+import com.solvd.NavigatorProject.models.transport.RailwayLine;
 
 public class Route extends Entity{
 	@JsonIgnore
 	private Long startStationId;
 	@JsonIgnore
 	private Long endStationId; 
-	private List<RailwayLineRoute> railwayLineRoutes;
-	private List<BusLineRoute> busLineRoutes;
+	private List<RailwayLine> railwayLines;
+	private List<BusLine> busLines;
 	@JsonIgnore
 	private Station startStation;
 	@JsonIgnore
@@ -31,28 +31,12 @@ public class Route extends Entity{
 		return endStationId;
 	}
 	
-	public List<RailwayLineRoute> getRailwayLineRoutes() {
-		return railwayLineRoutes;
-	}
-	
-	public List<BusLineRoute> getBusLineRoutes() {
-		return busLineRoutes;
-	}
-	
 	public void setStartStationId(Long startStationId) {
 		this.startStationId = startStationId;
 	}
 	
 	public void setEndStationId(Long endStationId) {
 		this.endStationId = endStationId;
-	}
-	
-	public void setRailwayLineRoutes(List<RailwayLineRoute> railwayLineRoutes) {
-		this.railwayLineRoutes = railwayLineRoutes;
-	}
-	
-	public void setBusLineRoutes(List<BusLineRoute> busLineRoutes) {
-		this.busLineRoutes = busLineRoutes;
 	}
 	
 	public void setStartStation(Station startStation) {
@@ -69,5 +53,21 @@ public class Route extends Entity{
 	
 	public Station getEndStation() {
 		return endStation;
+	}
+	
+	public void setRailwayLine(List<RailwayLine> railwayLine) {
+		this.railwayLines = railwayLine;
+	}
+	
+	public void setBusLine(List<BusLine> busLine) {
+		this.busLines = busLine;
+	}
+	
+	public List<RailwayLine> getRailwayLine() {
+		return railwayLines;
+	}
+	
+	public List<BusLine> getBusLine() {
+		return busLines;
 	}
 }

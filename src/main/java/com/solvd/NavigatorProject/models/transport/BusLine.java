@@ -2,11 +2,13 @@ package com.solvd.NavigatorProject.models.transport;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.solvd.NavigatorProject.models.Entity;
 
 public class BusLine extends Entity{
 	
 	private String name;
+	@JsonIgnore
 	private List<Bus> buses;
 	
 	public BusLine() {

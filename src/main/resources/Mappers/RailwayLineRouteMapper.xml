@@ -37,5 +37,12 @@
 	<![CDATA[
 		DELETE FROM Railway_Line_Routes WHERE id = #{id};
 	]]>
-	</delete>	
+	</delete>
+	
+	<select id="getRailwayLinesByStationId" resultMap="BusLineRouteResultMap">
+	<![CDATA[
+		SELECT railway_line_id FROM Railway_Line_Routes WHERE route_id = #{id};
+	]]>
+	</select>	
+
 </mapper>
