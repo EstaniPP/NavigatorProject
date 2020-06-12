@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.solvd.NavigatorProject.exceptions.NonExistentPathException;
 import com.solvd.NavigatorProject.models.location.Route;
 import com.solvd.NavigatorProject.models.location.Station;
 import com.solvd.NavigatorProject.services.StationService;
@@ -41,7 +42,7 @@ public class Navigator {
 	
 	private Path getBestPath(PriorityQueue<Path> paths, Station toPoint) throws Exception {
 		if(paths.size()==0) {//If I try all possible paths and none reaches toPoint
-			throw new Exception();
+			throw new NonExistentPathException();
 		}
 		Path path = paths.poll();
 		if(path.getStation().equals(toPoint)) {//If i reach tiPoint it returns the best path

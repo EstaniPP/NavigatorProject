@@ -28,6 +28,9 @@ public class StationService {
 		Station station = stationDAO.getEntity(id);
 		station.setRoutes(routeDAO.getRoutesByStartStationId(id));
 		return station;
-		
+	}
+	
+	public Station getStationByCoordinate(Double latitude, Double longitude) {
+		return stationDAO.getStationByCoordinate(latitude, longitude);
 	}
 }

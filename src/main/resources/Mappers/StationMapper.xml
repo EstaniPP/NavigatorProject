@@ -23,6 +23,12 @@
 		SELECT * FROM Stations WHERE id = #{id};
 	]]>
 	</select>
+	
+	<select id="getStationByCoordinate" resultMap="StationResultMap">
+	<![CDATA[
+		SELECT * FROM Stations WHERE latitude = #{latitude} AND longitude = #{longitude};
+	]]>
+	</select>
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 	<![CDATA[
