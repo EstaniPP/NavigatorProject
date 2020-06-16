@@ -49,9 +49,11 @@ public class Navigator {
 			return path;
 		}else {//else, I create all childs from this point and add them in order into the queue
 			for(Route route : path.getStation().getRoutes()) {
-				route.setStartStation(stations.get(route.getStartStationId()));
-				route.setEndStation(stations.get(route.getEndStationId()));
-				paths.add(new Path(path,route));
+				if(!path.getRoutes().contains(route)) {
+					route.setStartStation(stations.get(route.getStartStationId()));
+					route.setEndStation(stations.get(route.getEndStationId()));
+					paths.add(new Path(path,route));
+				}
 			}
 			return getBestPath(paths, toPoint);
 		}

@@ -3,16 +3,17 @@ package com.solvd.NavigatorProject.models.location;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.solvd.NavigatorProject.models.Entity;
 import com.solvd.NavigatorProject.models.transport.BusLine;
 import com.solvd.NavigatorProject.models.transport.RailwayLine;
 
+@JsonPropertyOrder({ "startStationName", "endStationName", "busLines", "railwayLines" })
 public class Route extends Entity{
 	@JsonIgnore
 	private Long startStationId;
 	@JsonIgnore
 	private Long endStationId; 
-	
 	private List<RailwayLine> railwayLines;
 	private List<BusLine> busLines;
 	@JsonIgnore
@@ -64,11 +65,27 @@ public class Route extends Entity{
 		this.busLines = busLine;
 	}
 	
-	public List<RailwayLine> getRailwayLine() {
+	public List<RailwayLine> getRailwayLines() {
 		return railwayLines;
 	}
 	
-	public List<BusLine> getBusLine() {
+	public List<BusLine> getBusLines() {
 		return busLines;
+	}
+	
+	public String getStartStationName() {
+		return "from: " + startStation.getName() + "(" + startStation.getAddress() + ")";
+	}
+	
+	public String getEndStationName() {
+		return "to: " + endStation.getName() + "(" + endStation.getAddress() + ")";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) return false;
+		if(!(obj instanceof Route)) return false;
+		Route r = (Route) obj;
+		return (this.getId() == r.getId());
 	}
 }

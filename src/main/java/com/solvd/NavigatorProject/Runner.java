@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.solvd.NavigatorProject.exceptions.NonExistentStationException;
 import com.solvd.NavigatorProject.models.location.Station;
 import com.solvd.NavigatorProject.navigationSolution.Navigator;
@@ -27,32 +28,36 @@ public class Runner {
 		BusLineService busLineService = new BusLineService();
 		RailwayLineService railwayLineService = new RailwayLineService();
 		
-		Station start = stationService.getStationByCoordinate(30.0, 30.0);
+		Station start = stationService.getStationByCoordinate(200.0, 200.0);
 		if(start == null) {
 			throw new NonExistentStationException();
 		}
 		
-		Station end = stationService.getStationByCoordinate(60.0, 60.0);
+		Station end = stationService.getStationByCoordinate(180.0, 250.0);
 		if(end == null) {
 			throw new NonExistentStationException();
 		}
-		
+
 		Navigator nav = new Navigator();
 		Path result = nav.getSolution(start, end);
-		result.getRoutes().forEach(r -> busLineService.getBusLinesByRoute(r.getId()));
-		result.getRoutes().forEach(r -> railwayLineService.getRailwayLinesByRoute(r.getId()));
+		if(result != null) {
+			result.getRoutes().forEach(r -> {
+				r.setBusLine(busLineService.getBusLinesByRoute(r.getId()));
+				r.setRailwayLine(railwayLineService.getRailwayLinesByRoute(r.getId()));
+			});
+		}
+		
 		//JSON section
-				ObjectMapper mapper = new ObjectMapper();
-
-				try {
-					mapper.writeValue(new File("src/main/resources/result.json"), result);
-				} catch (JsonGenerationException e) {
-					LOGGER.error(e);
-				} catch (JsonMappingException e) {
-					LOGGER.error(e);
-				} catch (IOException e) {
-					LOGGER.error(e);
-				}
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+		try {
+			mapper.writeValue(new File("src/main/resources/result.json"), result != null ? result : "Non existent path");
+		} catch (JsonGenerationException e) {
+			LOGGER.error(e);
+		} catch (JsonMappingException e) {
+			LOGGER.error(e);
+		} catch (IOException e) {
+			LOGGER.error(e);
+		}
 	}
-
 }
