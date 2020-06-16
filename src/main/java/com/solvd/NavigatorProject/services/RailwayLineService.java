@@ -8,7 +8,7 @@ import com.solvd.NavigatorProject.myBatis.SqlSession;
 
 public class RailwayLineService {
 
-	IRailwayLineDAO railwayLineRouteDAO;
+	private IRailwayLineDAO railwayLineRouteDAO;
 	
 	public RailwayLineService() {
 		railwayLineRouteDAO = SqlSession.getInstance().openSession(true).getMapper(IRailwayLineDAO.class);

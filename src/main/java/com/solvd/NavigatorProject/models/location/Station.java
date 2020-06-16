@@ -11,6 +11,7 @@ public class Station extends Entity{
 	private Double longitude; 
 	private Long cityId;
 	private List<Route> routes;
+	private City city;
 	
 	public Station() {
 		
@@ -40,6 +41,10 @@ public class Station extends Entity{
 		return routes;
 	}
 	
+	public City getCity() {
+		return city;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -62,6 +67,10 @@ public class Station extends Entity{
 	
 	public void setRoutes(List<Route> routes) {
 		this.routes = routes;
+	}
+	
+	public void setCity(City city) {
+		this.city = city;
 	}
 	
 	@Override

@@ -8,7 +8,7 @@ import com.solvd.NavigatorProject.myBatis.SqlSession;
 
 public class BusLineService {
 
-	IBusLineDAO busLineRouteDAO;
+	private IBusLineDAO busLineRouteDAO;
 	
 	public BusLineService() {
 		busLineRouteDAO = SqlSession.getInstance().openSession(true).getMapper(IBusLineDAO.class);

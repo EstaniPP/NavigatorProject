@@ -1,1 +1,30 @@
-"Non existent path"
+{
+  "routes" : [ {
+    "startStationName" : "from: Station 1 (Address 1 in CIUDAD 2)",
+    "endStationName" : "to: Station 2(Address 2 in CIUDAD 2)",
+    "busLines" : [ ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station 2 (Address 2 in CIUDAD 2)",
+    "endStationName" : "to: Station D(address D in CIUDAD 1)",
+    "busLines" : [ ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station D (address D in CIUDAD 1)",
+    "endStationName" : "to: Station E(address E in CIUDAD 1)",
+    "busLines" : [ {
+      "name" : "BLine A01"
+    } ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station E (address E in CIUDAD 1)",
+    "endStationName" : "to: Station G(address G in CIUDAD 1)",
+    "busLines" : [ {
+      "name" : "BLine A01"
+    }, {
+      "name" : "BLine A03"
+    } ],
+    "railwayLines" : [ ]
+  } ],
+  "totalDistance" : 456.53097563788805
+}

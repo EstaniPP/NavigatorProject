@@ -33,7 +33,7 @@ public class Runner {
 			throw new NonExistentStationException();
 		}
 		
-		Station end = stationService.getStationByCoordinate(180.0, 250.0);
+		Station end = stationService.getStationByCoordinate(100.0, 100.0);
 		if(end == null) {
 			throw new NonExistentStationException();
 		}

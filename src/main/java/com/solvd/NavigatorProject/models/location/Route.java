@@ -74,11 +74,11 @@ public class Route extends Entity{
 	}
 	
 	public String getStartStationName() {
-		return "from: " + startStation.getName() + "(" + startStation.getAddress() + ")";
+		return "from: " + startStation.getName() + " (" + startStation.getAddress() + " in " + startStation.getCity().getName() + ")";
 	}
 	
 	public String getEndStationName() {
-		return "to: " + endStation.getName() + "(" + endStation.getAddress() + ")";
+		return "to: " + endStation.getName() + "(" + endStation.getAddress() + " in " + endStation.getCity().getName() + ")";
 	}
 	
 	@Override
