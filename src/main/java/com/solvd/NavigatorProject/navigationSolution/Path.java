@@ -1,7 +1,6 @@
 package com.solvd.NavigatorProject.navigationSolution;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.solvd.NavigatorProject.models.location.Route;
@@ -9,10 +8,11 @@ import com.solvd.NavigatorProject.models.location.Station;
 
 public class Path{
 	
-	private List<Route> routes;
+	private ArrayList<Route> routes;
 	
+	@SuppressWarnings("unchecked")
 	public Path(Path path, Route route) {
-		this.routes = path.getRoutes();
+		this.routes = (ArrayList<Route>) path.getRoutes().clone();
 		routes.add(route);
 	}
 	
@@ -34,7 +34,7 @@ public class Path{
 		return routes.stream().mapToDouble(r -> getDistance(r)).sum();
 	}
 
-	public List<Route> getRoutes() {
+	public ArrayList<Route> getRoutes() {
 		return routes;
 	}
 	
