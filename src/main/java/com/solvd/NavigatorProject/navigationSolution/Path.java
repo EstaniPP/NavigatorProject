@@ -27,7 +27,7 @@ public class Path{
 
 	@JsonIgnore
 	public Station getStation() {
-		return routes.get(routes.size()-1).getEndStation();
+		return routes.get(routes.size()-1).getEndStation(); //RETURN END STATION OF THE PATH
 	}
 	
 	public Double getTotalDistance() {		

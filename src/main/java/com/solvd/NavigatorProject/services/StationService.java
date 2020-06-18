@@ -4,6 +4,7 @@ import java.util.List;
 import com.solvd.NavigatorProject.DAO.ICityDAO;
 import com.solvd.NavigatorProject.DAO.IRouteDAO;
 import com.solvd.NavigatorProject.DAO.IStationDAO;
+import com.solvd.NavigatorProject.exceptions.NonExistentStationException;
 import com.solvd.NavigatorProject.models.location.Station;
 import com.solvd.NavigatorProject.myBatis.SqlSession;
 
@@ -28,19 +29,13 @@ public class StationService {
 		return stations;
 	}
 	
-//	public Station getStationById(Long id) {
-//		Station station = stationDAO.getEntity(id);
-//		station.setRoutes(routeDAO.getRoutesByStartStationId(id));
-//		station.setCity(cityDAO.getEntity(station.getCityId()));
-//		return station;
-//	}
-	
-	public Station getStationByCoordinate(Double latitude, Double longitude) {
+	public Station getStationByCoordinate(Double latitude, Double longitude) throws NonExistentStationException{
 		Station station = stationDAO.getStationByCoordinate(latitude, longitude);
-		if(station != null) {
-			station.setRoutes(routeDAO.getRoutesByStartStationId(station.getId()));
-			station.setCity(cityDAO.getEntity(station.getCityId()));
+		if(station == null) {
+			throw new NonExistentStationException();
 		}
+		station.setRoutes(routeDAO.getRoutesByStartStationId(station.getId()));
+		station.setCity(cityDAO.getEntity(station.getCityId()));
 		return station;
 	}
 }

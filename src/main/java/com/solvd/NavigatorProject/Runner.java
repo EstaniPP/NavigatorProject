@@ -22,22 +22,26 @@ public class Runner {
 	
 	private final static Logger LOGGER = LogManager.getLogger(Runner.class);
 	
-	public static void main(String[] args) throws NonExistentStationException {
+	public static void main(String[] args) {
 
 		StationService stationService = new StationService();
 		BusLineService busLineService = new BusLineService();
 		RailwayLineService railwayLineService = new RailwayLineService();
 		
-		Station start = stationService.getStationByCoordinate(200.0, 200.0);
-		if(start == null) {
-			throw new NonExistentStationException();
+		Station start = null;
+		try {
+			start = stationService.getStationByCoordinate(200.0, 200.0);
+		} catch (NonExistentStationException e) {
+			LOGGER.error(e);
 		}
 		
-		Station end = stationService.getStationByCoordinate(100.0, 100.0);
-		if(end == null) {
-			throw new NonExistentStationException();
+		Station end = null;
+		try {
+			end = stationService.getStationByCoordinate(100.0, 100.0);
+		} catch (NonExistentStationException e) {
+			LOGGER.error(e);
 		}
-
+		
 		Navigator nav = new Navigator();
 		Path result = nav.getSolution(start, end);
 		if(result != null) {
@@ -47,7 +51,7 @@ public class Runner {
 			});
 		}
 		
-		//JSON section
+		//JSON result section
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 		try {

@@ -23,38 +23,49 @@ public class Navigator {
 		stationService.getStations().stream().forEach(station -> stations.put(station.getId(),station));
 	}
 	
-	//DIJSKTRA Solution
+	//DIJSKTRA solution
 	public Path getSolution(Station fromPoint, Station toPoint) {
-		PriorityQueue<Path> paths = new PriorityQueue<Path>(new PathComparator()); //Create queue with all possible paths
+		//Create queue with all possible paths
+		PriorityQueue<Path> paths = new PriorityQueue<Path>(new PathComparator()); 
+		//Add all routes that begins with fromPoint station
 		for(Route route : fromPoint.getRoutes()) {
 			route.setStartStation(stations.get(route.getStartStationId()));
 			route.setEndStation(stations.get(route.getEndStationId()));
 			paths.add(new Path(route));
-		}//Add all routes that begins with fromPoint station
+		}
 		Path bestPath = null;
 		try {
-			bestPath = getBestPath(paths, toPoint);//Get the best path
-		} catch (Exception e) {
-			LOGGER.error(e);//If there is no possible path
+			//Get the best path - recursive method
+			bestPath = getBestPath(paths, toPoint);
+		} catch (NonExistentPathException e) {
+			//If there is no possible path 
+			LOGGER.error(e);
 		}
 		return bestPath;
 	}
 	
-	private Path getBestPath(PriorityQueue<Path> paths, Station toPoint) throws Exception {
-		if(paths.size()==0) {//If I try all possible paths and none reaches toPoint
+	private Path getBestPath(PriorityQueue<Path> paths, Station toPoint) throws NonExistentPathException {
+		//If all possible paths are tried and none reaches toPoint
+		if(paths.size()==0) {
 			throw new NonExistentPathException();
 		}
+		//Take the shortest path from queue
 		Path path = paths.poll();
-		if(path.getStation().equals(toPoint)) {//If i reach tiPoint it returns the best path
+		//If it reaches toPoint, it returns the shortest path
+		if(path.getStation().equals(toPoint)) {
 			return path;
-		}else {//else, I create all childs from this point and add them in order into the queue
+		}
+		//Else, it creates all child routes from this point and add them to the queue (ordered)
+		else {
 			for(Route route : path.getStation().getRoutes()) {
+				//Avoid cycles 
 				if(!path.getRoutes().contains(route)) {
 					route.setStartStation(stations.get(route.getStartStationId()));
 					route.setEndStation(stations.get(route.getEndStationId()));
 					paths.add(new Path(path,route));
 				}
 			}
+			//Recursion
 			return getBestPath(paths, toPoint);
 		}
 	}	
