@@ -8,7 +8,7 @@ public class User extends Entity{
 	private String name;
 	private String lastName;
 	private LocalDate birthDate;
-	private String address; 
+	private Long addressId; 
 	
 	public User() {
 		
@@ -26,8 +26,8 @@ public class User extends Entity{
 		return birthDate;
 	}
 	
-	public String getAddress() {
-		return address;
+	public Long getAddressId() {
+		return addressId;
 	}
 	
 	public void setName(String name) {
@@ -42,7 +42,7 @@ public class User extends Entity{
 		this.birthDate = birthDate;
 	}
 	
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
 	}
 }

@@ -39,8 +39,8 @@ public class Path{
 	}
 	
 	private Double getDistance(Route r) {
-		Double latitudeDifference = r.getStartStation().getLatitude() - r.getEndStation().getLatitude();
-		Double longitudeDifference = r.getStartStation().getLongitude() - r.getEndStation().getLongitude();
+		Integer latitudeDifference = r.getStartStation().getLatitude() - r.getEndStation().getLatitude();
+		Integer longitudeDifference = r.getStartStation().getLongitude() - r.getEndStation().getLongitude();
 		return Math.sqrt(Math.pow(latitudeDifference,2)+Math.pow(longitudeDifference, 2));
 	}
 	

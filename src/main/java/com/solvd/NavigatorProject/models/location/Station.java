@@ -6,12 +6,10 @@ import com.solvd.NavigatorProject.models.Entity;
 
 public class Station extends Entity{
 	private String name;
-	private String address;
-	private Double latitude;
-	private Double longitude; 
-	private Long cityId;
+	private Integer latitude;
+	private Integer longitude;
+	private Long addressId;
 	private List<Route> routes;
-	private City city;
 	
 	public Station() {
 		
@@ -21,56 +19,40 @@ public class Station extends Entity{
 		return name;
 	}
 	
-	public String getAddress() {
-		return address;
-	}
-	
-	public Double getLatitude() {
+	public Integer getLatitude() {
 		return latitude;
 	}
 	
-	public Double getLongitude() {
+	public Integer getLongitude() {
 		return longitude;
 	}
 	
-	public Long getCityId() {
-		return cityId;
+	public Long getAddressId() {
+		return addressId;
 	}
 	
 	public List<Route> getRoutes() {
 		return routes;
 	}
 	
-	public City getCity() {
-		return city;
-	}
-	
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-	public void setLatitude(Double latitude) {
+	public void setLatitude(Integer latitude) {
 		this.latitude = latitude;
 	}
 	
-	public void setLongitude(Double longitude) {
+	public void setLongitude(Integer longitude) {
 		this.longitude = longitude;
 	}
 	
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
 	}
 	
 	public void setRoutes(List<Route> routes) {
 		this.routes = routes;
-	}
-	
-	public void setCity(City city) {
-		this.city = city;
 	}
 	
 	@Override
@@ -79,5 +61,10 @@ public class Station extends Entity{
 		if(!(obj instanceof Station)) return false;
 		Station s = (Station) obj;
 		return (this.getId() == s.getId());
+	}
+	
+	@Override
+	public String toString() {
+		return "STATION- id: " + this.getId() + " |name: " + this.getName() + " |coordinates: " + this.getLatitude() + " | " + this.getLongitude();
 	}
 }

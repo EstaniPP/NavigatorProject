@@ -6,7 +6,7 @@ import com.solvd.NavigatorProject.models.Entity;
 
 public class City extends Entity{
 	private String name;
-	private List<Station> stations; 
+	private List<Address> addresses; 
 	
 	public City() {
 		
@@ -16,15 +16,15 @@ public class City extends Entity{
 		return name;
 	}
 	
-	public List<Station> getStations() {
-		return stations;
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 	
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	public void setStations(List<Station> stations) {
-		this.stations = stations;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 }

@@ -8,7 +8,7 @@
 		<result property="name" column="name"></result>
 		<result property="lastName" column="last_name"></result>
 		<result property="birthDate" column="birth_date"></result>
-		<result property="address" column="address"></result>
+		<result property="addressId" column="address_id"></result>
 	</resultMap>
 
 	<select id="getEntities" resultMap="UserResultMap">
@@ -25,13 +25,13 @@
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 	<![CDATA[
-		INSERT INTO Users(name,last_name,birth_date,address) VALUES (#{name},#{lastName},#{birthDate},#{address});
+		INSERT INTO Users(name,last_name,birth_date,address_id) VALUES (#{name},#{lastName},#{birthDate},#{addressId});
 	]]>
 	</insert>
 	
 	<update id="update">
 	<![CDATA[
-		UPDATE Users SET name = #{name}, last_name = #{lastName}, birth_date = #{birthDate}, address = #{address} WHERE id = #{id};
+		UPDATE Users SET name = #{name}, last_name = #{lastName}, birth_date = #{birthDate}, address_id = #{addressId} WHERE id = #{id};
 	]]>
 	</update>
 	

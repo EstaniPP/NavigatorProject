@@ -1,30 +1,55 @@
-INSERT INTO Cities(name) VALUES 'Ciudad 1'; 
-INSERT INTO Cities(name) VALUES 'Ciudad 2'; 
+INSERT INTO Cities(name) VALUES ('City 1'); 
+INSERT INTO Cities(name) VALUES ('City 2'); 
 
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station A', 'address A', 30.0, 30.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station B', 'address B', 0.0, 0.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station C', 'address C', 30.0, 60.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station D', 'address D', 60.0, 0.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station E', 'address E', 100.0, 30.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station F', 'address F', 60.0, 60.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station G', 'address G', 100.0, 100.0, 1);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station 1', 'address 1', 200.0, 200.0, 2);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station 2', 'address 2', 250.0, 100.0, 2);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station 3', 'address 3', 225.0, 225.0, 2);
-INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES ('Station 4', 'address 4', 250.0, 180.0, 2);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationA_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationB_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationC_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationD_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationE_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationF_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationG_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('StationH_Street',1234,null,null,1);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('Station1_Street',1234,null,null,2);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('Station2_Street',1234,null,null,2);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('Station3_Street',1234,null,null,2);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('Station4_Street',1234,null,null,2);
+INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES ('Station5_Street',1234,null,null,2);
 
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station A',POINT(130,170),1);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station B',POINT(230,270),2);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station C',POINT(250,0),3);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station D',POINT(410,270),4);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station E',POINT(530,130),5);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station F',POINT(340,60),6);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station G',POINT(490,0),7);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station H',POINT(670,220),8);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station 1',POINT(210,450),9);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station 2',POINT(400,450),10);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station 3',POINT(310,540),11);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station 4',POINT(510,540),12);
+INSERT INTO Stations(name,coordinates,address_id) VALUES ('Station 5',POINT(240,660),13);
+
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (1,9);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (10,4);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (8,12);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (1,2);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (2,4);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (4,8);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (4,5);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (1,5);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (1,3);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (3,6);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (6,7);
-INSERT INTO Routes(start_station_id, end_station_id) VALUES (1,5);
-INSERT INTO Routes(start_station_id, end_station_id) VALUES (5,6);
-INSERT INTO Routes(start_station_id, end_station_id) VALUES (4,5);
-INSERT INTO Routes(start_station_id, end_station_id) VALUES (8,9);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (5,7);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (7,8);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (7,2);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (9,10);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (10,12);
 INSERT INTO Routes(start_station_id, end_station_id) VALUES (10,11);
-INSERT INTO Routes(start_station_id, end_station_id) VALUES (9,4);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (11,13);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (11,9);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (12,11);
+INSERT INTO Routes(start_station_id, end_station_id) VALUES (13,12);
 
 INSERT INTO Railway_Lines(name) VALUES ('Line A');
 INSERT INTO Railway_Lines(name) VALUES ('Line B');
@@ -51,6 +76,8 @@ INSERT INTO Bus_Lines(name) VALUES ('BLine E03');
 INSERT INTO Bus_Lines(name) VALUES ('BLine F01');
 INSERT INTO Bus_Lines(name) VALUES ('BLine F02');
 INSERT INTO Bus_Lines(name) VALUES ('BLine F03');
+
+------------- UP TO HERE
 
 INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,5);
 INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,6);

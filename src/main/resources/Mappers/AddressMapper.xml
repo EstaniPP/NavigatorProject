@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.NavigatorProject.DAO.IAddressDAO">
+	<resultMap id="AddressResultMap" type="com.solvd.NavigatorProject.models.location.Address">
+		<id property="id" column="id"></id>
+		<result property="street" column="street"></result>
+		<result property="number" column="number"></result>
+		<result property="floor" column="floor"></result>
+		<result property="apartment" column="apartment"></result>
+		<result property="cityId" column="city_id"></result>
+	</resultMap>
+
+	<select id="getEntities" resultMap="AddressResultMap">
+	<![CDATA[
+		SELECT * FROM Addresses;
+	]]>
+	</select>
+	
+	<select id="getEntity" resultMap="AddressResultMap">
+	<![CDATA[
+		SELECT * FROM Addresses WHERE id = #{id};
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		INSERT INTO Addresses(street,number,floor,apartment,city_id) VALUES (#{street},#{number},#{floor},#{apartment},#{cityId});
+	]]>
+	</insert>
+	
+	<update id="update">
+	<![CDATA[
+		UPDATE Addresses SET street = #{street}, number = #{number}, floor = #{floor}, apartment = #{apartment}, city_id = #{cityId} WHERE id = #{id};
+	]]>
+	</update>
+	
+	<delete id="delete">
+	<![CDATA[
+		DELETE FROM Addresses WHERE id = #{id};
+	]]>
+	</delete>	
+</mapper>

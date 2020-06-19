@@ -6,39 +6,38 @@
 	<resultMap id="StationResultMap" type="com.solvd.NavigatorProject.models.location.Station">
 		<id property="id" column="id"></id>
 		<result property="name" column="name"></result>
-		<result property="address" column="address"></result>
-		<result property="latitude" column="latitude"></result>
-		<result property="longitude" column="longitude"></result>
-		<result property="cityId" column="city_id"></result>
+		<result property="latitude" column="x"></result>
+		<result property="longitude" column="y"></result>
+		<result property="addressId" column="address_id"></result>
 	</resultMap>
 
 	<select id="getEntities" resultMap="StationResultMap">
 	<![CDATA[
-		SELECT * FROM Stations;
+		SELECT *, ST_X(coordinates) as x, ST_Y(coordinates) as y FROM Stations;
 	]]>
 	</select>
 	
 	<select id="getEntity" resultMap="StationResultMap">
 	<![CDATA[
-		SELECT * FROM Stations WHERE id = #{id};
+		SELECT *, ST_X(coordinates) as x, ST_Y(coordinates) as y FROM Stations WHERE id = #{id};
 	]]>
 	</select>
 	
 	<select id="getStationByCoordinate" resultMap="StationResultMap">
 	<![CDATA[
-		SELECT * FROM Stations WHERE latitude = #{param1} AND longitude = #{param2};
+		SELECT *, ST_X(coordinates) as x, ST_Y(coordinates) as y FROM Stations WHERE coordinates = POINT(#{latitude},#{longitude});
 	]]>
 	</select>
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 	<![CDATA[
-		INSERT INTO Stations(name,address,latitude,longitude,city_id) VALUES (#{name},#{address},#{latitude},#{longitude},#{cityId});
+		INSERT INTO Stations(name,coordinates,address_id) VALUES (#{name},POINT(#{latitude},#{longitude}),#{addressId});
 	]]>
 	</insert>
 	
 	<update id="update">
 	<![CDATA[
-		UPDATE Stations SET name = #{name}, address = #{address}, latitude = #{latitude}, longitude = #{longitude}, city_id = #{cityId} WHERE id = #{id};
+		UPDATE Stations SET name = #{name}, coordinates = POINT(#{latitude},#{longitude}), address_id = #{addressId} WHERE id = #{id};
 	]]>
 	</update>
 	

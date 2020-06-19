@@ -16,6 +16,7 @@
 		</environment>
 	</environments>
 	<mappers>
+		<mapper resource="Mappers/AddressMapper.xml"/>
 		<mapper resource="Mappers/CityMapper.xml"/>
 		<mapper resource="Mappers/DriverMapper.xml"/>
 		<mapper resource="Mappers/LicenseMapper.xml"/>

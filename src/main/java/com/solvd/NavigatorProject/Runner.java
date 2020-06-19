@@ -30,17 +30,19 @@ public class Runner {
 		
 		Station start = null;
 		try {
-			start = stationService.getStationByCoordinate(200.0, 200.0);
+			start = stationService.getStationByCoordinate(130, 170);
 		} catch (NonExistentStationException e) {
 			LOGGER.error(e);
 		}
+		LOGGER.info(start.toString());
 		
 		Station end = null;
 		try {
-			end = stationService.getStationByCoordinate(100.0, 100.0);
+			end = stationService.getStationByCoordinate(310, 540);
 		} catch (NonExistentStationException e) {
 			LOGGER.error(e);
 		}
+		LOGGER.info(end.toString());
 		
 		Navigator nav = new Navigator();
 		Path result = nav.getSolution(start, end);
