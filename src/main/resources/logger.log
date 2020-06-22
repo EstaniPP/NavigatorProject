@@ -1,1 +1,4 @@
-2020-06-22 11:55:20 ERROR Runner:36 - com.solvd.NavigatorProject.exceptions.NonExistentStationException
+2020-06-22 16:04:23 ERROR Runner:38 - com.solvd.NavigatorProject.exceptions.NonExistentStationException
+2020-06-22 16:04:23 INFO  Runner:47 - STATION- id: 6 |name: Station F |coordinates: 340 | 60
+2020-06-22 16:04:23 INFO  Runner:56 - STATION- id: 10 |name: Station 2 |coordinates: 400 | 450
+2020-06-22 16:04:23 ERROR Runner:82 - com.solvd.NavigatorProject.exceptions.NonExistentPathException

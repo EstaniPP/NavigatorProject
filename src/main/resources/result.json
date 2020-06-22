@@ -1,1 +1,54 @@
-"There are no available routes, please take a cab to reach your destination"
+{
+  "routes" : [ {
+    "startStationName" : "from: Station F",
+    "endStationName" : "to: Station G",
+    "busLines" : [ {
+      "name" : "BLine A01"
+    }, {
+      "name" : "BLine A03"
+    } ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station G",
+    "endStationName" : "to: Station H",
+    "busLines" : [ {
+      "name" : "BLine A01"
+    }, {
+      "name" : "BLine A02"
+    }, {
+      "name" : "BLine B02"
+    } ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station H",
+    "endStationName" : "to: Station 4",
+    "busLines" : [ ],
+    "railwayLines" : [ {
+      "name" : "Line E"
+    } ]
+  }, {
+    "startStationName" : "from: Station 4",
+    "endStationName" : "to: Station 3",
+    "busLines" : [ {
+      "name" : "BLine C01"
+    }, {
+      "name" : "BLine C02"
+    } ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station 3",
+    "endStationName" : "to: Station 1",
+    "busLines" : [ {
+      "name" : "BLine B03"
+    } ],
+    "railwayLines" : [ ]
+  }, {
+    "startStationName" : "from: Station 1",
+    "endStationName" : "to: Station 2",
+    "busLines" : [ {
+      "name" : "BLine B03"
+    } ],
+    "railwayLines" : [ ]
+  } ],
+  "totalDistance" : 1328.1154691557765
+}

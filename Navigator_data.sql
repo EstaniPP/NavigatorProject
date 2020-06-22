@@ -67,8 +67,6 @@ INSERT INTO Bus_Lines(name) VALUES ('BLine B01');
 INSERT INTO Bus_Lines(name) VALUES ('BLine B02');
 INSERT INTO Bus_Lines(name) VALUES ('BLine B03');
 
-------------- UP TO HERE
-
 INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,1);
 INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (2,1);
 INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (3,2);
@@ -123,6 +121,3 @@ INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,17);
 INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,18);
 INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,20);
 INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,21);
-
-
-
