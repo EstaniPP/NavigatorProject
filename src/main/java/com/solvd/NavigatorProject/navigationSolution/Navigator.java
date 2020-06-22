@@ -3,9 +3,6 @@ package com.solvd.NavigatorProject.navigationSolution;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.solvd.NavigatorProject.exceptions.NonExistentPathException;
 import com.solvd.NavigatorProject.models.location.Route;
 import com.solvd.NavigatorProject.models.location.Station;
@@ -15,7 +12,6 @@ public class Navigator {
 
 	private HashMap<Long, Station> stations;
 	private StationService stationService;
-	private final static Logger LOGGER = LogManager.getLogger(Navigator.class);
 			
 	public Navigator() {
 		stationService = new StationService();
@@ -24,7 +20,7 @@ public class Navigator {
 	}
 	
 	//DIJSKTRA solution
-	public Path getSolution(Station fromPoint, Station toPoint) {
+	public Path getSolution(Station fromPoint, Station toPoint) throws NonExistentPathException{
 		//Create queue with all possible paths
 		PriorityQueue<Path> paths = new PriorityQueue<Path>(new PathComparator()); 
 		//Add all routes that begins with fromPoint station
@@ -33,14 +29,8 @@ public class Navigator {
 			route.setEndStation(stations.get(route.getEndStationId()));
 			paths.add(new Path(route));
 		}
-		Path bestPath = null;
-		try {
-			//Get the best path - recursive method
-			bestPath = getBestPath(paths, toPoint);
-		} catch (NonExistentPathException e) {
-			//If there is no possible path 
-			LOGGER.error(e);
-		}
+		//Get the best path - recursive method
+		Path bestPath = getBestPath(paths, toPoint);
 		return bestPath;
 	}
 	

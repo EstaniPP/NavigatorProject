@@ -61,38 +61,68 @@ INSERT INTO Railway_Lines(name) VALUES ('Line F');
 INSERT INTO Bus_Lines(name) VALUES ('BLine A01');
 INSERT INTO Bus_Lines(name) VALUES ('BLine A02');
 INSERT INTO Bus_Lines(name) VALUES ('BLine A03');
+INSERT INTO Bus_Lines(name) VALUES ('BLine A04');
+INSERT INTO Bus_Lines(name) VALUES ('BLine A05');
 INSERT INTO Bus_Lines(name) VALUES ('BLine B01');
 INSERT INTO Bus_Lines(name) VALUES ('BLine B02');
 INSERT INTO Bus_Lines(name) VALUES ('BLine B03');
-INSERT INTO Bus_Lines(name) VALUES ('BLine C01');
-INSERT INTO Bus_Lines(name) VALUES ('BLine C02');
-INSERT INTO Bus_Lines(name) VALUES ('BLine C03');
-INSERT INTO Bus_Lines(name) VALUES ('BLine D01');
-INSERT INTO Bus_Lines(name) VALUES ('BLine D02');
-INSERT INTO Bus_Lines(name) VALUES ('BLine D03');
-INSERT INTO Bus_Lines(name) VALUES ('BLine E01');
-INSERT INTO Bus_Lines(name) VALUES ('BLine E02');
-INSERT INTO Bus_Lines(name) VALUES ('BLine E03');
-INSERT INTO Bus_Lines(name) VALUES ('BLine F01');
-INSERT INTO Bus_Lines(name) VALUES ('BLine F02');
-INSERT INTO Bus_Lines(name) VALUES ('BLine F03');
 
 ------------- UP TO HERE
 
-INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,5);
-INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,6);
-INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,7);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (1,1);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (2,1);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (3,2);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (4,2);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (5,3);
+INSERT INTO Railway_Line_Routes(railway_line_id, route_id) VALUES (6,2);
 
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,1);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,2);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,7);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,3);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,4);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,9);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,10);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,11);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,13);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,6);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,5);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (1,4);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,8);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,12);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,13);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,6);
 INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,5);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,6);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,7);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,1);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,3);
-INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,6);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,4);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (2,9);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,9);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,10);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,11);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,14);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,4);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,8);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (3,12);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,4);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,5);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,7);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (4,8);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (5,6);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (5,7);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (5,12);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (5,13);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (6,15);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (6,17);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (6,19);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (6,16);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (7,16);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (7,17);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (7,20);
+
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,17);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,18);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,20);
+INSERT INTO Bus_Line_Routes(bus_line_id, route_id) VALUES (8,21);
+
 
 

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.solvd.NavigatorProject.exceptions.NonExistentPathException;
 import com.solvd.NavigatorProject.exceptions.NonExistentStationException;
 import com.solvd.NavigatorProject.models.location.Station;
 import com.solvd.NavigatorProject.navigationSolution.Navigator;
@@ -30,7 +31,7 @@ public class Runner {
 		
 		Station start = null;
 		try {
-			start = stationService.getStationByCoordinate(130, 170);
+			start = stationService.getStationByCoordinate(250, 0);
 		} catch (NonExistentStationException e) {
 			LOGGER.error(e);
 		}
@@ -38,32 +39,43 @@ public class Runner {
 		
 		Station end = null;
 		try {
-			end = stationService.getStationByCoordinate(310, 540);
+			end = stationService.getStationByCoordinate(130, 170);
 		} catch (NonExistentStationException e) {
 			LOGGER.error(e);
 		}
 		LOGGER.info(end.toString());
-		
-		Navigator nav = new Navigator();
-		Path result = nav.getSolution(start, end);
-		if(result != null) {
-			result.getRoutes().forEach(r -> {
-				r.setBusLine(busLineService.getBusLinesByRoute(r.getId()));
-				r.setRailwayLine(railwayLineService.getRailwayLinesByRoute(r.getId()));
-			});
-		}
-		
 		//JSON result section
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+		Navigator nav = new Navigator();
+		Path result = null;
 		try {
-			mapper.writeValue(new File("src/main/resources/result.json"), result != null ? result : "Non existent path");
-		} catch (JsonGenerationException e) {
-			LOGGER.error(e);
-		} catch (JsonMappingException e) {
-			LOGGER.error(e);
-		} catch (IOException e) {
-			LOGGER.error(e);
+			result = nav.getSolution(start, end);
+			if(result != null) {
+				result.getRoutes().forEach(r -> {
+					r.setBusLine(busLineService.getBusLinesByRoute(r.getId()));
+					r.setRailwayLine(railwayLineService.getRailwayLinesByRoute(r.getId()));
+				});
+			}
+			try {
+				mapper.writeValue(new File("src/main/resources/result.json"), result);
+			} catch (JsonGenerationException e) {
+				LOGGER.error(e);
+			} catch (JsonMappingException e) {
+				LOGGER.error(e);
+			} catch (IOException e) {
+				LOGGER.error(e);
+			}
+		} catch (NonExistentPathException e1) {
+			try {
+				mapper.writeValue(new File("src/main/resources/result.json"), "There are no available routes, please take a cab to reach your destination");
+			} catch (JsonGenerationException e) {
+				LOGGER.error(e);
+			} catch (JsonMappingException e) {
+				LOGGER.error(e);
+			} catch (IOException e) {
+				LOGGER.error(e);
+			}
 		}
 	}
 }
